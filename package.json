@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html --open",
-    "clean": "rm -rf dist/*",
-    "build:parcel": "parcel build src/index.html --no-minify --no-source-maps --public-url /documentary/",
-    "build": "npm run clean && npm run build:parcel"
+    "start": "cross-env NODE_ENV=development parcel index.html ",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url /documentary/",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
